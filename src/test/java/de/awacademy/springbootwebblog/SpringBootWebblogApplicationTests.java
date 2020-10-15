@@ -10,12 +10,12 @@ class SpringBootWebblogApplicationTests {
 	@Test
 	public void simpleTest() {
 		int a=1;
-		Assert.assertEquals(1, a);
+		assertEquals(1, a);
 
 	}
 	*/
 	@Test
 	public void simpleTestTrue() {
-		Assert.assertTrue(true);
+		assertTrue(true);
 	}
 }

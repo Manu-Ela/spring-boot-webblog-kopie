@@ -13,9 +13,11 @@ pipeline {
                 }
             }    
         }
-        stage('unit tests') {
+        stage('Test') {
             steps {
-                echo 'unit tests'
+                script{
+                    mvn.test()
+                }
             }
          }
         stage('nexus upload') {

@@ -26,7 +26,7 @@ class SpringBootWebblogApplicationTests {
 
 	}
 	@Test
-	public void simpleTest() {
+	public void simpleTest4() {
 		int a=1;
 		Assert.assertEquals(1, a);
 

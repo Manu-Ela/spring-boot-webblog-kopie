@@ -82,22 +82,17 @@
 			</plugin>
 
 			<plugin>
-			    <groupId>org.codehaus.cargo</groupId>
-			    <artifactId>cargo-maven2-plugin</artifactId>
-			    <version>1.8.2</version>
+			    <groupId>org.apache.tomcat.maven</groupId>
+			    <artifactId>tomcat7-maven-plugin</artifactId>
+			    <version>2.2</version>
 			    <configuration>
-				<container>
-				    <containerId>tomcat7x</containerId>
-				    <type>installed</type>
-				    <home>Insert absolute path to tomcat 7 installation</home>
-				</container>
-				<configuration>
-				    <type>existing</type>
-				    <home>Insert absolute path to tomcat 7 installation</home>
-				</configuration>
+				<url>http://52.233.247.20:8082/manager/text</url>
+				<server>servers_tomcat</server>
+				<path>/myapp</path>
 			    </configuration>
-		       </plugin>
+			</plugin>
 	    </plugins>
 </build>
 
 </project>
+ 

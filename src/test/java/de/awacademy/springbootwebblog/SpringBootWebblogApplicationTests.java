@@ -6,14 +6,14 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 class SpringBootWebblogApplicationTests {
-	/*
+	
 	@Test
 	public void simpleTest() {
 		int a=1;
 		assertEquals(1, a);
 
 	}
-	*/
+	
 	@Test
 	public void simpleTestTrue() {
 		assertTrue(true);

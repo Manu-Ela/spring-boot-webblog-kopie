@@ -27,11 +27,6 @@ pipeline {
                 }
             }
         }
-        stage('Artifact Package') {
-            steps {
-                echo 'artifact package'
-            }
-        }
         stage('ArtifactPackage') {
             steps {
                 script{
@@ -39,9 +34,11 @@ pipeline {
                 }
             }
         }
-        stage('integration tests') {
+        stage('Deploy') {
             steps {
-            	echo 'integration tests'
+                script{
+                    mvn.deploy()
+                }
             }
         }
         stage('container stops') {

@@ -20,9 +20,9 @@ pipeline {
                 }
             }
          }
-        stage('nexus upload') {
+        stage('Verify') {
             steps {
-            	echo 'nexus upload'
+            	echo 'sonarqube'
             }
         }
         stage('artifact package') {
@@ -30,9 +30,11 @@ pipeline {
                 echo 'artifact package'
             }
         }
-        stage('container runs') {
+        stage('ArtifactPackage') {
             steps {
-            	echo 'container runs'
+                script{
+                    mvn.artifactpackage()
+                }
             }
         }
         stage('integration tests') {

@@ -36,9 +36,12 @@ pipeline {
         }
         stage('Deploy') {
             steps {
+                /*
                 script{
                     mvn.deploy()
                 }
+                */
+                echo 'deploy'
             }
         }
         stage('container stops') {

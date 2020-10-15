@@ -1,9 +1,8 @@
 package de.awacademy.springbootwebblog;
 
-import org.junit.Test;
-import org.junit.Assert;
-import org.junit.Assert.assertEquals;
-import org.junit.Assert.assertTrue;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 class SpringBootWebblogApplicationTests {

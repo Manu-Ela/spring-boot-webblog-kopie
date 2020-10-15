@@ -22,10 +22,12 @@ pipeline {
          }
         stage('Verify') {
             steps {
-            	echo 'sonarqube'
+                script{
+                    mvn.verify()
+                }
             }
         }
-        stage('artifact package') {
+        stage('Artifact Package') {
             steps {
                 echo 'artifact package'
             }

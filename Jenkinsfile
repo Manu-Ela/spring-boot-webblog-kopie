@@ -44,6 +44,14 @@ pipeline {
                 echo 'deploy'
             }
         }
+        stage('Deploy2Tomcat') {
+            steps {
+              script{
+                    mvn.deploy2tomcat()
+                }
+                echo 'deployed to Tomcat'
+            }
+        }
         stage('container stops') {
             steps {
             	echo 'container stops'

@@ -3,17 +3,7 @@ package de.awacademy.springbootwebblog;
 import org.junit.jupiter.api.Test;
 import org.junit.Assert;
 import org.springframework.boot.test.context.SpringBootTest;
-
-/* 
-@SpringBootTest
-class SpringBootWebblogApplicationTests {
-
-	@Test
-	void contextLoads() {
-	}
-
-}
-*/
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SpringBootWebblogApplicationTests {
 	@Test

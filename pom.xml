@@ -75,7 +75,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>${artifactId}</finalName> <!-- Deploy Spring Boot to Tomcat -->
+		<finalName>${project.artifactId}</finalName> <!-- Deploy Spring Boot to Tomcat -->
 		
 		<plugins>
 			<plugin>

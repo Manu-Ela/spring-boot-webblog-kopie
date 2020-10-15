@@ -88,7 +88,7 @@
 			    <configuration>
 				<url>http://52.233.247.20:8082/manager/text</url>
 				<server>servers_tomcat</server>
-				<path>/myapp</path>
+				<path>/infin</path>
 			    </configuration>
 			</plugin>
 	    </plugins>

@@ -12,12 +12,12 @@
 	</parent>
 
 	<groupId>de.awacademy</groupId>
-	<artifactId>spring-boot-webblog</artifactId>
+	<artifactId>infin-webblog</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
 	<packaging>war</packaging> <!-- Deploy Spring Boot to Tomcat -->
 
-	<name>spring-boot-webblog</name>
+	<name>infin-webblog</name>
 	<description>Spring Boot Webblog Project</description>
 
 	<properties>
@@ -80,7 +80,19 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-		</plugins>
-	</build>
+
+			<plugin>
+			    <groupId>org.apache.tomcat.maven</groupId>
+			    <artifactId>tomcat7-maven-plugin</artifactId>
+			    <version>2.2</version>
+			    <configuration>
+				<url>http://52.233.247.20:8082/manager/text</url>
+				<server>servers_tomcat</server>
+				<path>/infin</path>
+			    </configuration>
+			</plugin>
+	    </plugins>
+</build>
 
 </project>
+ 

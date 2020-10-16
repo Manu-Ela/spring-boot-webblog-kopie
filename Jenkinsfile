@@ -25,26 +25,40 @@ pipeline {
                 }
             }
          }
-        stage('nexus upload') {
+        stage('Verify') {
             steps {
-            	echo 'nexus upload'
+                script{
+                    mvn.verify()
+                }
             }
         }
-        stage('artifact package') {
+        stage('ArtifactPackage') {
             steps {
-                echo 'artifact package'
+                script{
+                    mvn.artifactpackage()
+                }
             }
         }
-        stage('container runs') {
+        stage('Deploy') {
             steps {
-            	echo 'container runs'
+                /*
+                script{
+                    mvn.deploy()
+                }
+                */
+                echo 'deploy'
             }
         }
-        stage('integration tests') {
+/*
+        stage('Deploy2Tomcat') {
             steps {
-            	echo 'integration tests'
+              script{
+                    mvn.deploy2tomcat()
+                }
+                echo 'deployed to Tomcat'
             }
         }
+*/
         stage('container stops') {
             steps {
             	echo 'container stops'

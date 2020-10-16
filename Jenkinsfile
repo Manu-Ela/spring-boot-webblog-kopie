@@ -4,11 +4,16 @@ pipeline {
         NEXUS_HOST = 'nexus:8081'
     }
     stages {
+        stage('Version') {
+            steps{
+                script{
+                    mvn.version()
+                }
+            }    
+        }
         stage('Compile') {
             steps{
-                echo "${WORKSPACE}"
                 script{
-                    //mvn.compile([flag:" -f ", pompath: "${WORKSPACE}"])
                     mvn.compile()
                 }
             }    

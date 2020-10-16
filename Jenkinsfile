@@ -45,7 +45,7 @@ pipeline {
         
         stage('TomcatTest') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'tomcat', usernameVariable: 'tomcat', passwordVariable: 's3cret')]) {
+                withCredentials([usernamePassword(credentialsId: 'tomcat', usernameVariable: 'tomcat_user', passwordVariable: 'tomcat_password')]) {
                     sh 'mvn tomcat7:deploy'
                 }
             }

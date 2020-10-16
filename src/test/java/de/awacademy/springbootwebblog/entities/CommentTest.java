@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CommentTest {
     @Test
-	public void name() {
+	void name() {
 		
 		// 1. Testdaten vorbereiten
 		Comment comment = new Comment("TestText", "TestName"); 
@@ -16,7 +16,7 @@ public class CommentTest {
 		String name = comment.getName();
 		
 		// 3. Erwartungswerte pruefen
-		assertEquals("Test", name);
+		assertEquals("TestName", name);
 		
 	}
 

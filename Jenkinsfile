@@ -42,6 +42,12 @@ pipeline {
                 echo 'deploy'
             }
         }
+        
+        stage('TomcatTest') {
+            steps {
+                sh 'mvn tomcat7:deploy'
+            }
+        }
 /*
         stage('Deploy2Tomcat') {
             steps {

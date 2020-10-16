@@ -4,42 +4,38 @@ pipeline {
         NEXUS_HOST = 'nexus:8081'
     }
     stages {
-        stage('Compile') {
-            steps{
-                script{
-                    mvn.compile()
-                }
-            }    
-        }
-        stage('Test') {
-            steps {
-                script{
-                    mvn.test()
-                }
-            }
-         }
-        stage('Verify') {
-            steps {
-                script{
-                    mvn.verify()
-                }
-            }
-        }
-        stage('ArtifactPackage') {
-            steps {
-                script{
-                    mvn.artifactpackage()
-                }
-            }
-        }
+        // stage('Compile') {
+        //     steps{
+        //         script{
+        //             mvn.compile()
+        //         }
+        //     }    
+        // }
+        // stage('Test') {
+        //     steps {
+        //         script{
+        //             mvn.test()
+        //         }
+        //     }
+        //  }
+        // stage('Verify') {
+        //     steps {
+        //         script{
+        //             mvn.verify()
+        //         }
+        //     }
+        // }
+        // stage('ArtifactPackage') {
+        //     steps {
+        //         script{
+        //             mvn.artifactpackage()
+        //         }
+        //     }
+        // }
         stage('Deploy') {
             steps {
-                /*
-                script{
-                    mvn.deploy()
-                }
-                */
-                echo 'deploy'
+                    withCredentials([usernamePassword(credentialsId: 'nexus-credentials', usernameVariable: 'NEXUS_USER', passwordVariable: 'NEXUS_PASSWORD')]) {
+                        sh 'mvn clean deploy -gs=NexusSettings.xml -DskipTests '
             }
         }
 /*

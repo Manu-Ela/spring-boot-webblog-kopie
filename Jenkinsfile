@@ -3,7 +3,7 @@ pipeline {
     environment {
         NEXUS_HOST = 'nexus:8081'
     }
-/*
+
     stages {
         stage('Compile') {
             steps{
@@ -43,7 +43,7 @@ pipeline {
                 echo 'deploy'
             }
         }
-*/
+
         stage('TomcatTest') {
             
             steps {

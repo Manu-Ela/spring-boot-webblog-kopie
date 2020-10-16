@@ -4,13 +4,6 @@ pipeline {
         NEXUS_HOST = 'nexus:8081'
     }
     stages {
-        stage('Version') {
-            steps{
-                script{
-                    mvn.version()
-                }
-            }    
-        }
         stage('Compile') {
             steps{
                 script{

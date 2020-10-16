@@ -35,8 +35,9 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Hallo'
+                    sh 'mvn clean deploy -gs=NexusSettings.xml -DskipTests'
                     //withCredentials([usernamePassword(credentialsId: 'nexus-credentials', usernameVariable: 'NEXUS_USER', passwordVariable: 'NEXUS_PASSWORD')]) {
-                    //    sh 'mvn clean deploy -gs=NexusSettings.xml -DskipTests '
+                    //    
             }
         }
 /*

@@ -36,8 +36,10 @@ pipeline {
         }        
         stage('Deploy to nexus') {
             steps {
+                configFileProvider([configFile(fileId: 'default', variable: 'MAVEN_GLOBAL_SETTINGS')]){
                 script{
                     mvn.deploy()
+                    }
                 }
             }
         }

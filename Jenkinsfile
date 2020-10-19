@@ -45,22 +45,12 @@ pipeline {
         stage('TomcatTest') {
             
             steps {
-                withCredentials([usernamePassword(credentialsId: 'tomcat', passwordVariable: 'tomcat_password', usernameVariable: 'tomcat_user')]) {
-                    sh 'mvn tomcat7:deploy'
+                echo 'deployed to Tomcat'
                 }
             }
            
         }
-/*
-        stage('Deploy2Tomcat') {
-            steps {
-              script{
-                    mvn.deploy2tomcat()
-                }
-                echo 'deployed to Tomcat'
-            }
-        }
-*/
+
         stage('container stops') {
             steps {
             	echo 'container stops'

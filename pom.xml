@@ -87,7 +87,11 @@
 			    <version>2.2</version>
 			    <configuration>
 				<url>http://52.233.247.20:8082/manager/text</url>
-				<server>servers_tomcat</server>
+				<server>tomcat</server>
+				<path>/${project.artifactId}</path>
+				<username>${TOMCAT_USER}</username>
+				<password>${TOMCAT_PASSWORD}</password>
+				<update>true</update>
 			    </configuration>
 			</plugin>
 			

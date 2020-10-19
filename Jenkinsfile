@@ -36,12 +36,9 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                /*
                 script{
                     mvn.deploy()
                 }
-                */
-                echo 'deploy'
             }
         }
 

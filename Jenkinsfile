@@ -3,6 +3,7 @@ pipeline {
     environment {
         NEXUS_HOST = 'nexus:8081'
     }
+
     stages {
         stage('Compile') {
             steps{
@@ -42,15 +43,15 @@ pipeline {
                 echo 'deploy'
             }
         }
-        
+
         stage('TomcatTest') {
-            /*
+            
             steps {
-                withCredentials([usernamePassword(credentialsId: 'tomcat', usernameVariable: 'tomcat_user', passwordVariable: 'tomcat_password')]) {
+                withCredentials([usernamePassword(credentialsId: 'tomcat', passwordVariable: 'tomcat_password', usernameVariable: 'tomcat_user')]) {
                     sh 'mvn tomcat7:deploy'
                 }
             }
-            */
+           
         }
 /*
         stage('Deploy2Tomcat') {

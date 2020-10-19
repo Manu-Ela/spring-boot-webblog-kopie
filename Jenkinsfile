@@ -34,12 +34,10 @@ pipeline {
                 }
             }
         }        
-        stage('Deploy to nexus') {
+        stage('deploy to Tomcat') {
             steps {
-                configFileProvider([configFile(fileId: 'default', variable: 'MAVEN_GLOBAL_SETTINGS')]){
-                script{
-                    mvn.deploy()
-                    }
+                configFileProvider([configFile(fileId: 'default', variable: 'MAVEN_GLOBAL_SETTINGS')]) {
+                    sh 'mvn -gs $MAVEN_GLOBAL_SETTINGS tomcat7:deploy'
                 }
             }
         }

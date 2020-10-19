@@ -47,7 +47,7 @@ pipeline {
         stage('TomcatTest') {
             steps {
                 configFileProvider([configFile(fileId: 'default', variable: 'MAVEN_GLOBAL_SETTINGS')]){
-                    scrip{
+                    script{
                         echo 'deployed to Tomcat'
                     }
                 }

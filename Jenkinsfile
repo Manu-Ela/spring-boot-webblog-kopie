@@ -33,7 +33,16 @@ pipeline {
                     mvn.artifactpackage()
                 }
             }
-        }        
+        }  
+        stage('Deploy to nexus') {
+            steps {
+                configFileProvider([configFile(fileId: 'default', variable: 'MAVEN_GLOBAL_SETTINGS')]){
+                script{
+                    mvn.deploy()
+                    }
+                }
+            }
+        }
         stage('deploy to Tomcat') {
             steps {
                 configFileProvider([configFile(fileId: 'default', variable: 'MAVEN_GLOBAL_SETTINGS')]) {
@@ -41,17 +50,6 @@ pipeline {
                 }
             }
         }
-
-        stage('TomcatTest') {
-            steps {
-                configFileProvider([configFile(fileId: 'default', variable: 'MAVEN_GLOBAL_SETTINGS')]){
-                    script{
-                        mvn.tomcat()
-                        echo 'deployed to Tomcat'
-                    }
-                }
-            }
-        }  
         stage('container stops') {
             steps {
             	echo 'container stops'

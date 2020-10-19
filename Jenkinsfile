@@ -7,6 +7,7 @@ pipeline {
     stages {
         stage('Compile') {
             steps{
+                echo "${WORKSPACE}"
                 script{
                     mvn.compile()
                 }

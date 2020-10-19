@@ -27,7 +27,13 @@ pipeline {
                 }
             }
         }
-        
+        stage('ArtifactPackage') {
+            steps {
+                script{
+                    mvn.artifactpackage()
+                }
+            }
+        }        
         stage('Deploy to nexus') {
             steps {
                 script{
@@ -37,22 +43,14 @@ pipeline {
         }
 
         stage('TomcatTest') {
-            
             steps {
-                echo 'deployed to Tomcat'
+                configFileProvider([configFile(fileId: 'default', variable: 'MAVEN_GLOBAL_SETTINGS')]){
+                    scrip{
+                        echo 'deployed to Tomcat'
+                    }
                 }
             }
-           
-        }
-        stage('ArtifactPackage') {
-            steps {
-                script{
-                    mvn.artifactpackage()
-                }
-            }
-        }
-
-
+        }  
         stage('container stops') {
             steps {
             	echo 'container stops'

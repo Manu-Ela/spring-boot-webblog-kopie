@@ -34,24 +34,7 @@ pipeline {
                 }
             }
         }
-        stage('Deploy to nexus') {
-            steps {
-                script{
-                    configFileProvider([configFile(fileId: 'default', variable: 'MAVEN_GLOBAL_SETTINGS')]){
-                        mvn.deploy()
-                    }
-                }
-            }
-        }
 
-        stage('TomcatTest') {
-            
-            steps {
-                echo 'deployed to Tomcat'
-                }
-            }
-           
-        }
 
         stage('container stops') {
             steps {

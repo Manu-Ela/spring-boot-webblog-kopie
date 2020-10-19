@@ -37,6 +37,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 script{
+                    configFileProvider([configFile(fileId: 'default', variable: 'MAVEN_GLOBAL_SETTINGS')]){
                     mvn.deploy()
                 }
             }

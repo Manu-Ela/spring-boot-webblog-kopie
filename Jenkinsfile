@@ -48,6 +48,7 @@ pipeline {
             steps {
                 configFileProvider([configFile(fileId: 'default', variable: 'MAVEN_GLOBAL_SETTINGS')]){
                     script{
+                        sh 'mvn tomcat7:deploy -gs ${MAVEN_GLOBAL_SETTINGS} -DskipTests'
                         echo 'deployed to Tomcat'
                     }
                 }

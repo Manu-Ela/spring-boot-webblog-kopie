@@ -1,0 +1,15 @@
+---
+  - name: Pull info-webblog.war from nexus
+    hosts: localhost
+    tasks:
+    - name: Create target directory
+      file: path=./target state=directory mode=0755
+
+    - name: Pull infin-webblog.war from nexus into the target dir
+      local_action:
+        module: community.general.maven_artifact
+        group_id: de.awacademy
+        artifact_id: infin-webblog
+        extension: war
+        repository_url: http://localhost:8081/repository/maven-snapshots/
+        dest: ./target

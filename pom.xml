@@ -94,13 +94,9 @@
 				<update>true</update>
 			    </configuration>
 			</plugin>
-			
-			<plugin>
-				<jacoco.utReportFile>${jacoco.utReportFolder}/jacoco.xml</jacoco.utReportFile>
-					<groupId>org.jacoco</groupId>
-					<artifactId>jacoco-maven-plugin</artifactId>
-					<version>0.8.6</version>
-				<jacoco.itReportFile>${jacoco.itReportFolder}/jacoco.xml</jacoco.itReportFile>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.8.6</version>
 			</plugin>
 	    </plugins>
 </build>

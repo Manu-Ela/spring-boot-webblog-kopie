@@ -36,7 +36,7 @@ pipeline {
             steps {
                 script {
                     withCredentials([usernamePassword(credentialsId: 'nexus-credentials', usernameVariable: 'NEXUS_USER', passwordVariable: 'NEXUS_PASSWORD')]) {
-                        mvn.deploy("NexusSettings.xml")
+                        mvn.deploy("Settings.xml")
                     }
                 }    
             }

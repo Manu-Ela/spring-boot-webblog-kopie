@@ -52,10 +52,5 @@ pipeline {
                 }
             }
         }
-        stage('container stops') {
-            steps {
-            	echo 'container stops'
-            }
-        }
     }
 }

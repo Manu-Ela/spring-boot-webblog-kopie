@@ -43,7 +43,7 @@ pipeline {
                 }
             }
         }
-        stage('deploy to Tomcat') {
+        stage('Deploy to Tomcat') {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'tomcat', usernameVariable: 'TOMCAT_USER', passwordVariable: 'TOMCAT_PASSWORD')]) {
                     configFileProvider([configFile(fileId: 'default', variable: 'MAVEN_GLOBAL_SETTINGS')]) {

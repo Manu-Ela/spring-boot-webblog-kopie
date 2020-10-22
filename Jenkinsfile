@@ -3,6 +3,7 @@ pipeline {
     environment {
         NEXUS_HOST = 'nexus:8081'
     }
+
     stages {
         // stage('Compile') {
         //     steps{
@@ -32,25 +33,24 @@ pipeline {
         //         }
         //     }
         // }
-        stage('Deploy') {
+        // stage('Deploy') {
+        //     steps {
+        //         script {
+        //             withCredentials([usernamePassword(credentialsId: 'nexus-credentials', usernameVariable: 'NEXUS_USER', passwordVariable: 'NEXUS_PASSWORD')]) {
+        //                 mvn.deploy("")
+        //             }
+        //         }    
+        //     }
+        // }
+        stage('deploy to Tomcat') {
             steps {
-                script {
-                    withCredentials([usernamePassword(credentialsId: 'nexus-credentials', usernameVariable: 'NEXUS_USER', passwordVariable: 'NEXUS_PASSWORD')]) {
-                        mvn.deploy("")
+                withCredentials([usernamePassword(credentialsId: 'tomcat', usernameVariable: 'TOMCAT_USER', passwordVariable: 'TOMCAT_PASSWORD')]) {
+                    configFileProvider([configFile(fileId: 'default', variable: 'MAVEN_GLOBAL_SETTINGS')]) {
+                        sh 'mvn -gs $MAVEN_GLOBAL_SETTINGS tomcat7:redeploy -DskipTests'
                     }
-                }    
-            }
-        }
-/*
-        stage('Deploy2Tomcat') {
-            steps {
-              script{
-                    mvn.deploy2tomcat()
                 }
-                echo 'deployed to Tomcat'
             }
         }
-*/
         stage('container stops') {
             steps {
             	echo 'container stops'

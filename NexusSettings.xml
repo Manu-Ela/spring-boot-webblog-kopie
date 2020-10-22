@@ -15,7 +15,7 @@
       <password>${NEXUS_PASSWORD}</password>
     </server>
     <server>
-      <id>TomcatServer</id>
+      <id>tomcat</id>
       <username>${TOMCAT_USER}</username>
       <password>${TOMCAT_PASSWORD}</password>
     </server>
